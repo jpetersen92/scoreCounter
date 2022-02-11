@@ -1,14 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import PlayerScore from './app/components/PlayerScore';
+
+import MainScoreScreen from './app/screens/MainScoreScreen';
+import PlayerEditScreen from './app/screens/PlayerEditScreen';
+
+
 
 export default function App() {
+
+  const [player, setPlayer] = useState('')
+
+
   return (
     <View style={styles.container}>
-      <PlayerScore />
+      {/* <MainScoreScreen /> */}
+      <PlayerEditScreen />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -18,4 +27,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  test: {
+    height: 300,
+    width: 300,
+    backgroundColor: '#000'
+  }
 });

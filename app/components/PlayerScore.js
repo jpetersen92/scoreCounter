@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import AppButton from './AppButton';
+import { View, StyleSheet, Text, Button, TouchableOpacity } from 'react-native';
+import CounterButton from './CounterButton';
 
-function PlayerScore({ backgroundColor, playerTitle}) {
+import Icon from './Icon'
+
+
+function PlayerScore({ backgroundColor = 'red', player}) {
     const [score, setScore] = useState(0)
 
     const handleAdd = () => {
@@ -16,13 +19,13 @@ function PlayerScore({ backgroundColor, playerTitle}) {
     }
 
     return (
-        <View style={styles.container}>
-            <AppButton name='minus' onPress={() => handleSubtract()}/>
+        <View style={[styles.container, {backgroundColor}]}>
+            <CounterButton onPress={() => handleSubtract()} icon='minus'/>
             <View style={styles.playerContainer}>
-                <Text>Player One</Text>
+                <Text>{player}</Text>
                 <Text>{score}</Text>
             </View>
-            <AppButton name='plus' onPress={() => handleAdd()}/>
+            <CounterButton onPress={() => handleAdd()} icon='plus'/>
         </View>
     );
 }
@@ -31,10 +34,12 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: 80,
-        backgroundColor: 'blue',
         justifyContent: 'space-between',
         alignItems: 'center',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        borderColor: '#000',
+        borderWidth: 1,
+        marginVertical: 10
     },
     playerContainer: {
         justifyContent: 'center',
