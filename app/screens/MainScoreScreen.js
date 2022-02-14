@@ -21,7 +21,7 @@ function MainScoreScreen(props) {
     return (
         <SafeAreaView style={styles.container}>
             <PlayerEditContainer player={playerOne} setPlayer={setPlayerOne} />
-            {playerOne ? <PlayerEditContainer player={playerTwo} setPlayer={setPlayerTwo} /> : null}
+            {playerOne || playerTwo ? <PlayerEditContainer player={playerTwo} setPlayer={setPlayerTwo} /> : null}
             {playerTwo ? <PlayerEditContainer player={playerThree} setPlayer={setPlayerThree} /> : null}
             {playerThree ? <PlayerEditContainer player={playerFour} setPlayer={setPlayerFour} /> : null}
             {playerFour ? <PlayerEditContainer player={playerFive} setPlayer={setPlayerFive} /> : null}

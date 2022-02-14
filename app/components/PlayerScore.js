@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Button, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TouchableWithoutFeedback } from 'react-native';
+import Swipeable  from 'react-native-gesture-handler/Swipeable';
+
 import CounterButton from './CounterButton';
+import Icon from './Icon';
 
 
 
-function PlayerScore({ backgroundColor = 'red', player}) {
+function PlayerScore({ backgroundColor = 'green', player, setPlayer }) {
     const [score, setScore] = useState(0)
 
     const handleAdd = () => {
@@ -18,14 +21,22 @@ function PlayerScore({ backgroundColor = 'red', player}) {
     }
 
     return (
-        <View style={[styles.container, {backgroundColor}]}>
-            <CounterButton onPress={() => handleSubtract()} icon='minus'/>
-            <View style={styles.playerContainer}>
-                <Text>{player}</Text>
-                <Text>{score}</Text>
+        <Swipeable renderRightActions={() => 
+            <TouchableWithoutFeedback onPress={() => setPlayer('')}>
+                <View style={styles.delete}>
+                    <Icon name='trash-can' />
+                </View>
+            </TouchableWithoutFeedback>
+        }>
+            <View style={[styles.container, {backgroundColor}]}>
+                <CounterButton onPress={() => handleSubtract()} icon='minus'/>
+                <View style={styles.playerContainer}>
+                    <Text>{player}</Text>
+                    <Text>{score}</Text>
+                </View>
+                <CounterButton onPress={() => handleAdd()} icon='plus'/>
             </View>
-            <CounterButton onPress={() => handleAdd()} icon='plus'/>
-        </View>
+        </Swipeable>
     );
 }
 
@@ -36,13 +47,19 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: 'row',
-        borderColor: '#000',
-        borderWidth: 1,
         marginVertical: 10
     },
     playerContainer: {
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    delete: {
+        backgroundColor: 'red',
+        width: 70,
+        height: 80,
+        marginVertical: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
 

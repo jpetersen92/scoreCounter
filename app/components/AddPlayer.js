@@ -1,16 +1,17 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 
 import Icon from './Icon';
 
-function AddPlayer(props) {
+function AddPlayer({ modal }) {
 
     const addPlayer = () => {
-        
+
     }
 
     return (
-        <TouchableOpacity style={styles.container} onPress={() => console.log("Pressed")}>
+        <TouchableOpacity style={styles.container} onPress={() => modal(true)}>
+                <Text>Add Player</Text>
                 <Icon name='plus' />
         </TouchableOpacity>
     );
@@ -23,7 +24,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'grey',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 5
+        marginTop: 5,
+        flexDirection: 'row'
     }
 })
 
