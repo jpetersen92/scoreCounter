@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Text, Button, TouchableOpacity } from 'react-native';
 import CounterButton from './CounterButton';
 
-import Icon from './Icon'
 
 
 function PlayerScore({ backgroundColor = 'red', player}) {

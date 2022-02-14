@@ -1,41 +1,32 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, TextInput, FlatList, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import AddPlayer from '../components/AddPlayer';
+import PlayerEditContainer from '../components/PlayerEditContainer';
 
 
 import PlayerScore from '../components/PlayerScore';
 
-const testPlayers = [
-    {
-        playerName: 'Josh',
-        playerNumber: 1,
-        color: 'blue'
-    },
-    {
-        playerName: 'Arthur',
-        playerNumber: 2,
-        color: 'orange'
-    },
-    {
-        playerName: 'Ethan',
-        playerNumber: 3,
-        color: 'pink'
-    },
-]
-
 function MainScoreScreen(props) {
 
-    const [players, setPlayers] = useState(testPlayers)
+    const [playerOne, setPlayerOne] = useState('');
+    const [playerTwo, setPlayerTwo] = useState('');
+    const [playerThree, setPlayerThree] = useState('');
+    const [playerFour, setPlayerFour] = useState('');
+    const [playerFive, setPlayerFive] = useState('');
+    const [playerSix, setPlayerSix] = useState('');
+
 
     const renderItem = ({item}) => <PlayerScore player={item.playerName} backgroundColor={item.color}/>
 
     return (
         <SafeAreaView style={styles.container}>
-            <FlatList 
-                data={players}
-                renderItem={renderItem} 
-                keyExtractor={item => item.playerNumber}
-            />
+            <PlayerEditContainer player={playerOne} setPlayer={setPlayerOne} />
+            {playerOne ? <PlayerEditContainer player={playerTwo} setPlayer={setPlayerTwo} /> : null}
+            {playerTwo ? <PlayerEditContainer player={playerThree} setPlayer={setPlayerThree} /> : null}
+            {playerThree ? <PlayerEditContainer player={playerFour} setPlayer={setPlayerFour} /> : null}
+            {playerFour ? <PlayerEditContainer player={playerFive} setPlayer={setPlayerFive} /> : null}
+            {playerFive ? <PlayerEditContainer player={playerSix} setPlayer={setPlayerSix} /> : null}
+
         </SafeAreaView>
     );
 }

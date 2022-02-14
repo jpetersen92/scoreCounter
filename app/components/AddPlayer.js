@@ -4,6 +4,11 @@ import { TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from './Icon';
 
 function AddPlayer(props) {
+
+    const addPlayer = () => {
+        
+    }
+
     return (
         <TouchableOpacity style={styles.container} onPress={() => console.log("Pressed")}>
                 <Icon name='plus' />

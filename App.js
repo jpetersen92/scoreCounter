@@ -3,7 +3,6 @@ import { StyleSheet, View } from 'react-native';
 
 
 import MainScoreScreen from './app/screens/MainScoreScreen';
-import PlayerEditScreen from './app/screens/PlayerEditScreen';
 
 
 
@@ -14,8 +13,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* <MainScoreScreen /> */}
-      <PlayerEditScreen />
+      <MainScoreScreen />
     </View>
   )
 }
