@@ -16,16 +16,14 @@ function MainScoreScreen(props) {
     const [playerSix, setPlayerSix] = useState('');
 
 
-    const renderItem = ({item}) => <PlayerScore player={item.playerName} backgroundColor={item.color}/>
-
     return (
         <SafeAreaView style={styles.container}>
             <PlayerEditContainer player={playerOne} setPlayer={setPlayerOne} />
             {playerOne || playerTwo ? <PlayerEditContainer player={playerTwo} setPlayer={setPlayerTwo} /> : null}
-            {playerTwo ? <PlayerEditContainer player={playerThree} setPlayer={setPlayerThree} /> : null}
-            {playerThree ? <PlayerEditContainer player={playerFour} setPlayer={setPlayerFour} /> : null}
-            {playerFour ? <PlayerEditContainer player={playerFive} setPlayer={setPlayerFive} /> : null}
-            {playerFive ? <PlayerEditContainer player={playerSix} setPlayer={setPlayerSix} /> : null}
+            {playerTwo || playerThree ? <PlayerEditContainer player={playerThree} setPlayer={setPlayerThree} /> : null}
+            {playerThree || playerFour ? <PlayerEditContainer player={playerFour} setPlayer={setPlayerFour} /> : null}
+            {playerFour || playerFive ? <PlayerEditContainer player={playerFive} setPlayer={setPlayerFive} /> : null}
+            {playerFive || playerSix ? <PlayerEditContainer player={playerSix} setPlayer={setPlayerSix} /> : null}
 
         </SafeAreaView>
     );
