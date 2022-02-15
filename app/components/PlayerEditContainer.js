@@ -26,7 +26,9 @@ function PlayerEditContainer({ player, setPlayer }) {
 }
 
 const styles = StyleSheet.create({
-    container: {}
+    modal: {
+        alignItems: 'center'
+    }
 })
 
 export default PlayerEditContainer;

@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
-import AddPlayer from '../components/AddPlayer';
 import PlayerEditContainer from '../components/PlayerEditContainer';
 
-
-import PlayerScore from '../components/PlayerScore';
 
 function MainScoreScreen(props) {
 
