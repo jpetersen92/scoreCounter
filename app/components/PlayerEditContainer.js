@@ -17,8 +17,9 @@ function PlayerEditContainer({ player, setPlayer }) {
         </View>
         <Modal visible={visible} animationType="slide">
             <SafeAreaView style={styles.modal}>
-                <Button title="done" onPress={() => setVisible(false)} />
-                <TextInput placeholder='Player Name' onChangeText={text => setPlayer(text)}/>
+                <Button style={styles.done} title="done" onPress={() => setVisible(false)} />
+                <TextInput style={styles.input} placeholder='Player Name' onChangeText={text => setPlayer(text)}/>
+
             </SafeAreaView>
         </Modal>
         </>
@@ -27,7 +28,12 @@ function PlayerEditContainer({ player, setPlayer }) {
 
 const styles = StyleSheet.create({
     modal: {
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+    },
+    input: {
+        paddingVertical: 20,
     }
 })
 
